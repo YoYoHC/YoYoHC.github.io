@@ -15,19 +15,19 @@
 
 
 
-<meta name="description" content="Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控废话不多说开始折腾！！简单说一下Blynk是用来操作物联网的，不知道的自行百度哦！这里我们的监控是本地局域网的，如果个人有服务器可以按照步骤架设到服务器端。 挂载摄像头第一步当然是将摄像头连接到ubantu设备，这里使用树莓派是可以的，接下来检测摄像头是否已经挂载，可以挂载多个有几个USB口就可以挂载几个。 1、打开终端输入命令查看摄像">
+<meta name="description" content="Ubantu下使用OPencv结合Blynk挂载多摄像头进行监控！树莓派同样适用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubantu挂载多摄像头监控">
 <meta property="og:url" content="http://yoyohc.github.io/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/index.html">
 <meta property="og:site_name" content="YoYo">
-<meta property="og:description" content="Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控废话不多说开始折腾！！简单说一下Blynk是用来操作物联网的，不知道的自行百度哦！这里我们的监控是本地局域网的，如果个人有服务器可以按照步骤架设到服务器端。 挂载摄像头第一步当然是将摄像头连接到ubantu设备，这里使用树莓派是可以的，接下来检测摄像头是否已经挂载，可以挂载多个有几个USB口就可以挂载几个。 1、打开终端输入命令查看摄像">
+<meta property="og:description" content="Ubantu下使用OPencv结合Blynk挂载多摄像头进行监控！树莓派同样适用。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoyohc.github.io/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/pasted-0.png">
 <meta property="og:image" content="http://yoyohc.github.io/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/pasted-1.png">
 <meta property="og:image" content="http://yoyohc.github.io/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/pasted-2.png">
 <meta property="og:image" content="http://yoyohc.github.io/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/pasted-3.png">
 <meta property="article:published_time" content="2020-03-14T02:49:00.000Z">
-<meta property="article:modified_time" content="2020-03-14T04:29:44.077Z">
+<meta property="article:modified_time" content="2020-03-14T13:20:23.699Z">
 <meta property="article:author" content="HJC">
 <meta property="article:tag" content="Ubantu">
 <meta property="article:tag" content="Blynk">
@@ -82,7 +82,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: 
+        search: false
     }
 </script>
 
@@ -310,7 +310,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控"><a href="#Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控" class="headerlink" title="Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控"></a>Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控</h2><p>废话不多说开始折腾！！<br>简单说一下Blynk是用来操作物联网的，不知道的自行百度哦！这里我们的监控是本地局域网的，如果个人有服务器可以按照步骤架设到服务器端。</p>
+        <p>Ubantu下使用OPencv结合Blynk挂载多摄像头进行监控！树莓派同样适用。</p>
+<a id="more"></a>
+<h2 id="Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控"><a href="#Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控" class="headerlink" title="Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控"></a>Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控</h2><p>废话不多说开始折腾！！<br>简单说一下Blynk是用来操作物联网的，不知道的自行百度哦！这里我们的监控是本地局域网的，如果个人有服务器可以按照步骤架设到服务器端。</p>
 <h5 id="挂载摄像头"><a href="#挂载摄像头" class="headerlink" title="挂载摄像头"></a>挂载摄像头</h5><p>第一步当然是将摄像头连接到ubantu设备，这里使用树莓派是可以的，接下来检测摄像头是否已经挂载，可以挂载多个有几个USB口就可以挂载几个。</p>
 <h6 id="1、打开终端输入命令查看摄像头是否挂载"><a href="#1、打开终端输入命令查看摄像头是否挂载" class="headerlink" title="1、打开终端输入命令查看摄像头是否挂载"></a>1、打开终端输入命令查看摄像头是否挂载</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsusb</span><br></pre></td></tr></table></figure>
 <p><img src="/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/pasted-0.png" alt="输出结果"></p>
@@ -355,7 +357,7 @@
         <p><span>本文标题:</span><a href="/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/">Ubantu挂载多摄像头监控</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">HJC</a></p>
         <p><span>发布时间:</span>2020-03-14, 10:49:00</p>
-        <p><span>最后更新:</span>2020-03-14, 12:29:44</p>
+        <p><span>最后更新:</span>2020-03-14, 21:20:23</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/" title="Ubantu挂载多摄像头监控">http://yoyohc.github.io/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoyohc.github.io/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/　　作者: HJC" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -370,12 +372,12 @@
 
     <nav id="article-nav">
         
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2020/01/21/arduino/">
-                    arduino
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2020/03/14/hello-world/">
+                    Hexo 写作文章操作
                 </a>
             </div>
+        
         
     </nav>
 
@@ -441,19 +443,19 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2020/03/14/hello-world/" title="上一篇: Hexo 写作文章操作">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2020/01/21/arduino/" title="下一篇: arduino">
-                <i class="fa fa-angle-right"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/">Ubantu挂载多摄像头监控</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/21/arduino/">arduino</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/20/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/hello-world/">Hexo 写作文章操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/">Ubantu挂载多摄像头监控</a></li></ul>
 
 
 
