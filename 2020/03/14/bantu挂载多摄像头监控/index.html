@@ -380,7 +380,7 @@
         <h2 id="Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控"><a href="#Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控" class="headerlink" title="Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控"></a>Ubantu下挂载多摄像头使用Blynk进行切换局域网进行监控</h2><p>废话不多说开始折腾！！<br>简单说一下Blynk是用来操作物联网的，不知道的自行百度哦！这里我们的监控是本地局域网的，如果个人有服务器可以按照步骤架设到服务器端。</p>
 <h5 id="挂载摄像头"><a href="#挂载摄像头" class="headerlink" title="挂载摄像头"></a>挂载摄像头</h5><p>第一步当然是将摄像头连接到ubantu设备，这里使用树莓派是可以的，接下来检测摄像头是否已经挂载，可以挂载多个有几个USB口就可以挂载几个。</p>
 <h6 id="1、打开终端输入命令查看摄像头是否挂载"><a href="#1、打开终端输入命令查看摄像头是否挂载" class="headerlink" title="1、打开终端输入命令查看摄像头是否挂载"></a>1、打开终端输入命令查看摄像头是否挂载</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsusb</span><br></pre></td></tr></table></figure>
-<p><img src="/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/%5Cimages%5Cpasted-0.png%5C" alt="输出结果"></p>
+<p><img src="/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/pasted-0.png" alt="输出结果"></p>
 <h5 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h5><p>nginx是我们这里的关键用来建立服务器将视频推流到客户端</p>
 <h6 id="1、安装依赖库"><a href="#1、安装依赖库" class="headerlink" title="1、安装依赖库"></a>1、安装依赖库</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev</span><br><span class="line">$ sudo apt-get install zlib1g-dev</span><br><span class="line">$ sudo apt-get install openssl</span><br><span class="line">$ sudo apt install gcc</span><br></pre></td></tr></table></figure>
 <h6 id="2、建立工作目录"><a href="#2、建立工作目录" class="headerlink" title="2、建立工作目录"></a>2、建立工作目录</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir ~/working</span><br><span class="line">$ <span class="built_in">cd</span> ~/working</span><br></pre></td></tr></table></figure>
@@ -427,7 +427,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-14T11:55:11+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-14T12:10:07+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
     <p>更新于 2020年3月14日</p>
