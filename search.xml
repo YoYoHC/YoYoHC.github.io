@@ -1,21 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Jetson Nano开启VNC 并自启动</title>
+    <url>/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/</url>
+    <content><![CDATA[<h3 id="Jetson-Nano固定IP地址并开启VNC远程桌面"><a href="#Jetson-Nano固定IP地址并开启VNC远程桌面" class="headerlink" title="Jetson Nano固定IP地址并开启VNC远程桌面"></a>Jetson Nano固定IP地址并开启VNC远程桌面</h3><p>VNC开启VNC远程桌面并设置VNC服务器自启动</p>
+<h5 id="1、固定IP地址"><a href="#1、固定IP地址" class="headerlink" title="1、固定IP地址"></a>1、固定IP地址</h5><p>由于Ubantu系统重启后IP地址不固定所以这里先固定IP地址</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/network/interface</span><br></pre></td></tr></table></figure>
+<p>打开以后注释代码并在最后添加</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">auto ens32</span><br><span class="line">iface ens32 inet static</span><br><span class="line">address 192.168.159.130   <span class="comment">#你要固定的IP地址</span></span><br><span class="line">netmask 255.255.255.0</span><br><span class="line">gateway 192.168.2.1</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/%5Cimages%5Cpasted-6.png%5C" alt="最终效果"></p>
+<h5 id="2、设置DNS"><a href="#2、设置DNS" class="headerlink" title="2、设置DNS"></a>2、设置DNS</h5><p>输入以下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/resolvconf/resolv.conf.d/base</span><br></pre></td></tr></table></figure>
+<p>在文档末尾添加一下代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nameserver 8.8.8.8</span><br><span class="line">nameserver 114.114.114.114</span><br></pre></td></tr></table></figure>
+<h5 id="3、刷新配置文件"><a href="#3、刷新配置文件" class="headerlink" title="3、刷新配置文件"></a>3、刷新配置文件</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo resolvconf -u</span><br><span class="line">sudo /etc/init.d/networking restart</span><br></pre></td></tr></table></figure>
+<h5 id="4、重新启动，设置完成！"><a href="#4、重新启动，设置完成！" class="headerlink" title="4、重新启动，设置完成！"></a>4、重新启动，设置完成！</h5><h3 id="开始设置VNC"><a href="#开始设置VNC" class="headerlink" title="开始设置VNC"></a>开始设置VNC</h3><h5 id="1、开启共享桌面程序"><a href="#1、开启共享桌面程序" class="headerlink" title="1、开启共享桌面程序"></a>1、开启共享桌面程序</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install vino</span><br><span class="line">sudo nano /usr/share/glib-2.0/schemas/org.gnome.Vino.gschema.xml</span><br></pre></td></tr></table></figure>
+<h5 id="2、打开xml"><a href="#2、打开xml" class="headerlink" title="2、打开xml"></a>2、打开xml</h5><p>在 schema id=’org.gnome.Vino’ path=’/org/gnome/desktop/remote-access/‘下添加如下代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;key name=<span class="string">"enabled"</span> <span class="built_in">type</span>=<span class="string">"b"</span>&gt;</span><br><span class="line">&lt;summary&gt;Enable remote access to the desktop&lt;/summary&gt;</span><br><span class="line">&lt;description&gt;</span><br><span class="line">If <span class="literal">true</span>, allows remote access to the desktop via the RFB</span><br><span class="line">protocol. Users on remote machines may <span class="keyword">then</span> connect to the</span><br><span class="line">desktop using a VNC viewer.</span><br><span class="line">&lt;/description&gt;</span><br><span class="line">&lt;default&gt;<span class="literal">false</span>&lt;/default&gt;</span><br><span class="line">&lt;/key&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/%5Cimages%5Cpasted-7.png%5C" alt="完成效果"></p>
+<h5 id="3、重新编译"><a href="#3、重新编译" class="headerlink" title="3、重新编译"></a>3、重新编译</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo glib-compile-schemas /usr/share/glib-2.0/schemas</span><br></pre></td></tr></table></figure>
+<h5 id="4、输入以下命令"><a href="#4、输入以下命令" class="headerlink" title="4、输入以下命令"></a>4、输入以下命令</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> DISPLAY=:0</span><br><span class="line">gsettings <span class="built_in">set</span> org.gnome.Vino enabled <span class="literal">true</span></span><br><span class="line">gsettings <span class="built_in">set</span> org.gnome.Vino prompt-enabled <span class="literal">false</span></span><br><span class="line">gsettings <span class="built_in">set</span> org.gnome.Vino require-encryption <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h5 id="5、设置自启动"><a href="#5、设置自启动" class="headerlink" title="5、设置自启动"></a>5、设置自启动</h5><p>新建脚本服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo nano vncserver.sh</span><br></pre></td></tr></table></figure>
+<p>脚本中填入如下内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#command content</span></span><br><span class="line">nohup /usr/lib/vino/vino-server --display=:0 &amp;</span><br><span class="line">nohup xrandr --fb 1280x720 &amp;</span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<p>更改权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo chmod a+x vncserver.sh</span><br></pre></td></tr></table></figure>
+<p>添加到自启动</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/profile</span><br></pre></td></tr></table></figure>
+<p>在末尾处添加如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/home/jetbot/vncserver.sh</span><br></pre></td></tr></table></figure>
+<h5 id="6、重启-电脑端VNC输入IP地址-全部完成-Over！！！！"><a href="#6、重启-电脑端VNC输入IP地址-全部完成-Over！！！！" class="headerlink" title="6、重启 电脑端VNC输入IP地址 全部完成 Over！！！！"></a>6、重启 电脑端VNC输入IP地址 全部完成 Over！！！！</h5>]]></content>
+  </entry>
+  <entry>
     <title>Hexo写作文章操作</title>
     <url>/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>Hexo 写作操作步骤</p>
 <a id="more"></a>
 
-<h2 id="使用-Hexo-Admin-插件编写文章"><a href="#使用-Hexo-Admin-插件编写文章" class="headerlink" title="使用 Hexo Admin 插件编写文章"></a>使用 Hexo Admin 插件编写文章</h2><h3 id="安装Hexo-Admin插件"><a href="#安装Hexo-Admin插件" class="headerlink" title="安装Hexo Admin插件"></a>安装Hexo Admin插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install --save hexo-admin</span><br></pre></td></tr></table></figure>
-<h3 id="启动本地服务进行编写"><a href="#启动本地服务进行编写" class="headerlink" title="启动本地服务进行编写"></a>启动本地服务进行编写</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server -d</span><br><span class="line">$ open http://localhost:4000/admin/</span><br></pre></td></tr></table></figure>
-<h3 id="文章中添加超链接"><a href="#文章中添加超链接" class="headerlink" title="文章中添加超链接"></a>文章中添加超链接</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 文章适当位置放入  More info: [链接名称](链接地址)</span><br></pre></td></tr></table></figure>
+<h2 id="使用-Hexo-Admin-插件编写文章"><a href="#使用-Hexo-Admin-插件编写文章" class="headerlink" title="使用 Hexo Admin 插件编写文章"></a>使用 Hexo Admin 插件编写文章</h2><h3 id="安装Hexo-Admin插件"><a href="#安装Hexo-Admin插件" class="headerlink" title="安装Hexo Admin插件"></a>安装Hexo Admin插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-admin</span><br></pre></td></tr></table></figure>
+<h3 id="启动本地服务进行编写"><a href="#启动本地服务进行编写" class="headerlink" title="启动本地服务进行编写"></a>启动本地服务进行编写</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server -d</span><br><span class="line">浏览器打开 http://localhost:4000/admin/</span><br></pre></td></tr></table></figure>
+<h3 id="文章中添加超链接"><a href="#文章中添加超链接" class="headerlink" title="文章中添加超链接"></a>文章中添加超链接</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">文章适当位置放入  More info: [链接名称](链接地址)</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 直接粘贴图片到文章中，后续在souce-&gt;_posts下创建同名文件夹将图片放到该目录下，图片默认在images文件夹下。</span><br><span class="line">$ 打开文章.md 在引入图片处输入图片名称即可，如图。</span><br></pre></td></tr></table></figure>
+<h3 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">直接粘贴图片到文章中，后续在souce-&gt;_posts下创建同名文件夹将图片放到该目录下，图片默认在images文件夹下。</span><br><span class="line">打开文章.md 在引入图片处输入图片名称即可，如图。</span><br></pre></td></tr></table></figure>
 <p><img src="/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/pasted-5.png" alt="在_posts文件夹下创建文件夹"><br><img src="/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/pasted-4.png" alt="引入图片方式"></p>
-<h3 id="添加等级目录"><a href="#添加等级目录" class="headerlink" title="添加等级目录"></a>添加等级目录</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 在文字前添加 <span class="comment"># 即可最多六级井号和文字之间有一个空格 如 ###### 这是六级</span></span><br></pre></td></tr></table></figure>
-<h3 id="添加摘要"><a href="#添加摘要" class="headerlink" title="添加摘要"></a>添加摘要</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ 在文章适当位置放入&lt;!-- more --&gt; 摘要部分放到该标识符之前！</span><br></pre></td></tr></table></figure>
-<h3 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>]]></content>
+<h3 id="添加等级目录"><a href="#添加等级目录" class="headerlink" title="添加等级目录"></a>添加等级目录</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">在文字前添加 <span class="comment"># 即可最多六级井号和文字之间有一个空格 如 ###### 这是六级</span></span><br></pre></td></tr></table></figure>
+<h3 id="添加摘要"><a href="#添加摘要" class="headerlink" title="添加摘要"></a>添加摘要</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">在文章适当位置放入&lt;!-- more --&gt; 摘要部分放到该标识符之前！</span><br></pre></td></tr></table></figure>
+<h3 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>Hexo</tag>
       </tags>

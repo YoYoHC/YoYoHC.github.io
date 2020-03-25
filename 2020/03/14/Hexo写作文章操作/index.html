@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://yoyohc.github.io/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/pasted-5.png">
 <meta property="og:image" content="http://yoyohc.github.io/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/pasted-4.png">
 <meta property="article:published_time" content="2020-03-14T13:25:00.000Z">
-<meta property="article:modified_time" content="2020-03-14T15:08:02.487Z">
+<meta property="article:modified_time" content="2020-03-25T13:06:02.421Z">
 <meta property="article:author" content="HJC">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -310,16 +310,16 @@
         <p>Hexo 写作操作步骤</p>
 <a id="more"></a>
 
-<h2 id="使用-Hexo-Admin-插件编写文章"><a href="#使用-Hexo-Admin-插件编写文章" class="headerlink" title="使用 Hexo Admin 插件编写文章"></a>使用 Hexo Admin 插件编写文章</h2><h3 id="安装Hexo-Admin插件"><a href="#安装Hexo-Admin插件" class="headerlink" title="安装Hexo Admin插件"></a>安装Hexo Admin插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save hexo-admin</span><br></pre></td></tr></table></figure>
-<h3 id="启动本地服务进行编写"><a href="#启动本地服务进行编写" class="headerlink" title="启动本地服务进行编写"></a>启动本地服务进行编写</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server -d</span><br><span class="line">$ open http://localhost:4000/admin/</span><br></pre></td></tr></table></figure>
-<h3 id="文章中添加超链接"><a href="#文章中添加超链接" class="headerlink" title="文章中添加超链接"></a>文章中添加超链接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 文章适当位置放入  More info: [链接名称](链接地址)</span><br></pre></td></tr></table></figure>
+<h2 id="使用-Hexo-Admin-插件编写文章"><a href="#使用-Hexo-Admin-插件编写文章" class="headerlink" title="使用 Hexo Admin 插件编写文章"></a>使用 Hexo Admin 插件编写文章</h2><h3 id="安装Hexo-Admin插件"><a href="#安装Hexo-Admin插件" class="headerlink" title="安装Hexo Admin插件"></a>安装Hexo Admin插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-admin</span><br></pre></td></tr></table></figure>
+<h3 id="启动本地服务进行编写"><a href="#启动本地服务进行编写" class="headerlink" title="启动本地服务进行编写"></a>启动本地服务进行编写</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo server -d</span><br><span class="line">浏览器打开 http://localhost:4000/admin/</span><br></pre></td></tr></table></figure>
+<h3 id="文章中添加超链接"><a href="#文章中添加超链接" class="headerlink" title="文章中添加超链接"></a>文章中添加超链接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文章适当位置放入  More info: [链接名称](链接地址)</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ 直接粘贴图片到文章中，后续在souce-&gt;_posts下创建同名文件夹将图片放到该目录下，图片默认在images文件夹下。</span><br><span class="line">$ 打开文章.md 在引入图片处输入图片名称即可，如图。</span><br></pre></td></tr></table></figure>
+<h3 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">直接粘贴图片到文章中，后续在souce-&gt;_posts下创建同名文件夹将图片放到该目录下，图片默认在images文件夹下。</span><br><span class="line">打开文章.md 在引入图片处输入图片名称即可，如图。</span><br></pre></td></tr></table></figure>
 <p><img src="/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/pasted-5.png" alt="在_posts文件夹下创建文件夹"><br><img src="/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/pasted-4.png" alt="引入图片方式"></p>
-<h3 id="添加等级目录"><a href="#添加等级目录" class="headerlink" title="添加等级目录"></a>添加等级目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 在文字前添加 <span class="comment"># 即可最多六级井号和文字之间有一个空格 如 ###### 这是六级</span></span><br></pre></td></tr></table></figure>
-<h3 id="添加摘要"><a href="#添加摘要" class="headerlink" title="添加摘要"></a>添加摘要</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 在文章适当位置放入&lt;!-- more --&gt; 摘要部分放到该标识符之前！</span><br></pre></td></tr></table></figure>
-<h3 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="添加等级目录"><a href="#添加等级目录" class="headerlink" title="添加等级目录"></a>添加等级目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在文字前添加 <span class="comment"># 即可最多六级井号和文字之间有一个空格 如 ###### 这是六级</span></span><br></pre></td></tr></table></figure>
+<h3 id="添加摘要"><a href="#添加摘要" class="headerlink" title="添加摘要"></a>添加摘要</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在文章适当位置放入&lt;!-- more --&gt; 摘要部分放到该标识符之前！</span><br></pre></td></tr></table></figure>
+<h3 id="发布博客"><a href="#发布博客" class="headerlink" title="发布博客"></a>发布博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -330,7 +330,7 @@
         <p><span>本文标题:</span><a href="/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/">Hexo写作文章操作</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">HJC</a></p>
         <p><span>发布时间:</span>2020-03-14, 21:25:00</p>
-        <p><span>最后更新:</span>2020-03-14, 23:08:02</p>
+        <p><span>最后更新:</span>2020-03-25, 21:06:02</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/" title="Hexo写作文章操作">http://yoyohc.github.io/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoyohc.github.io/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/　　作者: HJC" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -344,6 +344,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/">
+                    Jetson Nano开启VNC 并自启动
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -416,7 +422,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/" title="上一篇: Jetson Nano开启VNC 并自启动">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -428,7 +436,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/">Hexo写作文章操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/">Ubantu挂载多摄像头监控</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/">Jetson Nano开启VNC 并自启动</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/">Hexo写作文章操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/">Ubantu挂载多摄像头监控</a></li></ul>
 
 
 
