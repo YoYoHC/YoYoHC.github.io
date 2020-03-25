@@ -15,20 +15,21 @@
 
 
 
-<meta name="description" content="Jetson Nano固定IP地址并开启VNC远程桌面VNC开启VNC远程桌面并设置VNC服务器自启动 1、固定IP地址由于Ubantu系统重启后IP地址不固定所以这里先固定IP地址 1sudo nano &#x2F;etc&#x2F;network&#x2F;interface 打开以后注释代码并在最后添加 12345auto ens32iface ens32 inet staticaddress 192.168.159.1">
+<meta name="description" content="Jetson VNC远程桌面">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jetson Nano开启VNC 并自启动">
-<meta property="og:url" content="http://yoyohc.github.io/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/index.html">
+<meta property="og:title" content="Jetson开启VNC">
+<meta property="og:url" content="http://yoyohc.github.io/2020/03/25/Jetson%E5%BC%80%E5%90%AFVNC/index.html">
 <meta property="og:site_name" content="YoYo">
-<meta property="og:description" content="Jetson Nano固定IP地址并开启VNC远程桌面VNC开启VNC远程桌面并设置VNC服务器自启动 1、固定IP地址由于Ubantu系统重启后IP地址不固定所以这里先固定IP地址 1sudo nano &#x2F;etc&#x2F;network&#x2F;interface 打开以后注释代码并在最后添加 12345auto ens32iface ens32 inet staticaddress 192.168.159.1">
+<meta property="og:description" content="Jetson VNC远程桌面">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoyohc.github.io/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/%5Cimages%5Cpasted-6.png%5C">
-<meta property="og:image" content="http://yoyohc.github.io/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/%5Cimages%5Cpasted-7.png%5C">
-<meta property="article:published_time" content="2020-03-25T13:06:55.000Z">
-<meta property="article:modified_time" content="2020-03-25T13:46:15.945Z">
+<meta property="og:image" content="http://yoyohc.github.io/2020/03/25/Jetson%E5%BC%80%E5%90%AFVNC/%5Cimages%5Cpasted-6.png%5C">
+<meta property="og:image" content="http://yoyohc.github.io/2020/03/25/Jetson%E5%BC%80%E5%90%AFVNC/%5Cimages%5Cpasted-7.png%5C">
+<meta property="article:published_time" content="2020-03-25T13:06:00.000Z">
+<meta property="article:modified_time" content="2020-03-25T13:54:59.411Z">
 <meta property="article:author" content="HJC">
+<meta property="article:tag" content="Ubantu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoyohc.github.io/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/%5Cimages%5Cpasted-6.png%5C">
+<meta name="twitter:image" content="http://yoyohc.github.io/2020/03/25/Jetson%E5%BC%80%E5%90%AFVNC/%5Cimages%5Cpasted-6.png%5C">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -62,7 +63,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Jetson Nano开启VNC 并自启动 | YoYo</title>
+<title>Jetson开启VNC | YoYo</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -266,11 +267,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-etson-Nano开启VNC-并自启动" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Jetson开启VNC" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/" class="article-date">
-      <time datetime="2020-03-25T13:06:55.000Z" itemprop="datePublished">2020-03-25</time>
+      <a href="/2020/03/25/Jetson%E5%BC%80%E5%90%AFVNC/" class="article-date">
+      <time datetime="2020-03-25T13:06:00.000Z" itemprop="datePublished">2020-03-25</time>
 </a>
 
 
@@ -285,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Jetson Nano开启VNC 并自启动
+      Jetson开启VNC
     </h1>
   
 
@@ -295,6 +296,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubantu/" rel="tag">Ubantu</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -302,12 +307,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="Jetson-Nano固定IP地址并开启VNC远程桌面"><a href="#Jetson-Nano固定IP地址并开启VNC远程桌面" class="headerlink" title="Jetson Nano固定IP地址并开启VNC远程桌面"></a>Jetson Nano固定IP地址并开启VNC远程桌面</h3><p>VNC开启VNC远程桌面并设置VNC服务器自启动</p>
+        <p>Jetson VNC远程桌面</p>
+<a id="more"></a>
+<h3 id="Jetson-Nano固定IP地址并开启VNC远程桌面"><a href="#Jetson-Nano固定IP地址并开启VNC远程桌面" class="headerlink" title="Jetson Nano固定IP地址并开启VNC远程桌面"></a>Jetson Nano固定IP地址并开启VNC远程桌面</h3><p>VNC开启VNC远程桌面并设置VNC服务器自启动</p>
 <h5 id="1、固定IP地址"><a href="#1、固定IP地址" class="headerlink" title="1、固定IP地址"></a>1、固定IP地址</h5><p>由于Ubantu系统重启后IP地址不固定所以这里先固定IP地址</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/network/interface</span><br></pre></td></tr></table></figure>
 <p>打开以后注释代码并在最后添加</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">auto ens32</span><br><span class="line">iface ens32 inet static</span><br><span class="line">address 192.168.159.130   <span class="comment">#你要固定的IP地址</span></span><br><span class="line">netmask 255.255.255.0</span><br><span class="line">gateway 192.168.2.1</span><br></pre></td></tr></table></figure>
-<p><img src="/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/%5Cimages%5Cpasted-6.png%5C" alt="最终效果"></p>
+<p><img src="/2020/03/25/Jetson%E5%BC%80%E5%90%AFVNC/%5Cimages%5Cpasted-6.png%5C" alt="最终效果"></p>
 <h5 id="2、设置DNS"><a href="#2、设置DNS" class="headerlink" title="2、设置DNS"></a>2、设置DNS</h5><p>输入以下命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/resolvconf/resolv.conf.d/base</span><br></pre></td></tr></table></figure>
 <p>在文档末尾添加一下代码</p>
@@ -316,7 +323,7 @@
 <h5 id="4、重新启动，设置完成！"><a href="#4、重新启动，设置完成！" class="headerlink" title="4、重新启动，设置完成！"></a>4、重新启动，设置完成！</h5><h3 id="开始设置VNC"><a href="#开始设置VNC" class="headerlink" title="开始设置VNC"></a>开始设置VNC</h3><h5 id="1、开启共享桌面程序"><a href="#1、开启共享桌面程序" class="headerlink" title="1、开启共享桌面程序"></a>1、开启共享桌面程序</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install vino</span><br><span class="line">sudo nano /usr/share/glib-2.0/schemas/org.gnome.Vino.gschema.xml</span><br></pre></td></tr></table></figure>
 <h5 id="2、打开xml"><a href="#2、打开xml" class="headerlink" title="2、打开xml"></a>2、打开xml</h5><p>在 schema id=’org.gnome.Vino’ path=’/org/gnome/desktop/remote-access/‘下添加如下代码</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;key name=<span class="string">"enabled"</span> <span class="built_in">type</span>=<span class="string">"b"</span>&gt;</span><br><span class="line">&lt;summary&gt;Enable remote access to the desktop&lt;/summary&gt;</span><br><span class="line">&lt;description&gt;</span><br><span class="line">If <span class="literal">true</span>, allows remote access to the desktop via the RFB</span><br><span class="line">protocol. Users on remote machines may <span class="keyword">then</span> connect to the</span><br><span class="line">desktop using a VNC viewer.</span><br><span class="line">&lt;/description&gt;</span><br><span class="line">&lt;default&gt;<span class="literal">false</span>&lt;/default&gt;</span><br><span class="line">&lt;/key&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/%5Cimages%5Cpasted-7.png%5C" alt="完成效果"></p>
+<p><img src="/2020/03/25/Jetson%E5%BC%80%E5%90%AFVNC/%5Cimages%5Cpasted-7.png%5C" alt="完成效果"></p>
 <h5 id="3、重新编译"><a href="#3、重新编译" class="headerlink" title="3、重新编译"></a>3、重新编译</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo glib-compile-schemas /usr/share/glib-2.0/schemas</span><br></pre></td></tr></table></figure>
 <h5 id="4、输入以下命令"><a href="#4、输入以下命令" class="headerlink" title="4、输入以下命令"></a>4、输入以下命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> DISPLAY=:0</span><br><span class="line">gsettings <span class="built_in">set</span> org.gnome.Vino enabled <span class="literal">true</span></span><br><span class="line">gsettings <span class="built_in">set</span> org.gnome.Vino prompt-enabled <span class="literal">false</span></span><br><span class="line">gsettings <span class="built_in">set</span> org.gnome.Vino require-encryption <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 <h5 id="5、设置自启动"><a href="#5、设置自启动" class="headerlink" title="5、设置自启动"></a>5、设置自启动</h5><p>新建脚本服务</p>
@@ -337,13 +344,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/">Jetson Nano开启VNC 并自启动</a></p>
+        <p><span>本文标题:</span><a href="/2020/03/25/Jetson%E5%BC%80%E5%90%AFVNC/">Jetson开启VNC</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">HJC</a></p>
-        <p><span>发布时间:</span>2020-03-25, 21:06:55</p>
-        <p><span>最后更新:</span>2020-03-25, 21:46:15</p>
+        <p><span>发布时间:</span>2020-03-25, 21:06:00</p>
+        <p><span>最后更新:</span>2020-03-25, 21:54:59</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/" title="Jetson Nano开启VNC 并自启动">http://yoyohc.github.io/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoyohc.github.io/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/　　作者: HJC" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/03/25/Jetson%E5%BC%80%E5%90%AFVNC/" title="Jetson开启VNC">http://yoyohc.github.io/2020/03/25/Jetson%E5%BC%80%E5%90%AFVNC/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoyohc.github.io/2020/03/25/Jetson%E5%BC%80%E5%90%AFVNC/　　作者: HJC" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -406,7 +413,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Jetson Nano开启VNC 并自启动　| YoYo　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Jetson开启VNC　| YoYo　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -438,7 +445,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/25/etson-Nano%E5%BC%80%E5%90%AFVNC-%E5%B9%B6%E8%87%AA%E5%90%AF%E5%8A%A8/">Jetson Nano开启VNC 并自启动</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/">Hexo写作文章操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/">Ubantu挂载多摄像头监控</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/25/Jetson%E5%BC%80%E5%90%AFVNC/">Jetson开启VNC</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/Hexo%E5%86%99%E4%BD%9C%E6%96%87%E7%AB%A0%E6%93%8D%E4%BD%9C/">Hexo写作文章操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/14/bantu%E6%8C%82%E8%BD%BD%E5%A4%9A%E6%91%84%E5%83%8F%E5%A4%B4%E7%9B%91%E6%8E%A7/">Ubantu挂载多摄像头监控</a></li></ul>
 
 
 
@@ -473,8 +480,8 @@
      
       <script type="text/javascript">
         var gitment = new Gitment({
-			  id: 'Jetson Nano开启VNC 并自启动',
-			  title: 'Jetson Nano开启VNC 并自启动',
+			  id: 'Jetson开启VNC',
+			  title: 'Jetson开启VNC',
 			  owner: 'YoYoHC',
 			  repo: 'yoyohc.github.io',
 			  oauth: {
